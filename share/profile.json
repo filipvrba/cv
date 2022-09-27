@@ -3,5 +3,125 @@
   "name": "Filip Vrba",
   "bio": "Specializace v oboru žádná.",
   "school": "COPt Uherský Brod",
-  "address": "Zlínský, Česko"
+  "address": "Zlínský, Česko",
+  "experiences": [
+    {
+      "name": "Grafik, Copywriter a Programátor ( vanilla js )",
+      "company": "ADTeam",
+      "date": {
+        "start": "srpen 2021",
+        "end": "říjen 2021"
+      },
+      "address": "Kroměříž, Zlínský, Česko",
+      "description": [
+        "Tvorba vlastního enginu (Graph) pro vizualizaci grafů a psaní dokumentace pro tuto API.",
+        "Graph je experimentální, open-source přístupný vanilla projekt, který dokáže vizualizovat data, pomocí json formátu a to dynamicky.",
+        "Více informácí naleznete na této stránce https://filipvrba.github.io/graph/"
+      ]
+    },
+    {
+      "name": "Brigáda - Specialista prodeje",
+      "company": "Albert Česká republika Na smlouvu",
+      "date": {
+        "start": "duben 2021",
+        "end": "červen 2021"
+      },
+      "address": "Kroměříž, Zlínský, Česko",
+      "description": [
+        "Vybalování a doplňování zboží.",
+        "Spolupráce s vedením týmu.",
+        "Komunikace se zákazniky."
+      ]
+    },
+    {
+      "name": "Stážista v digitálním marketingu",
+      "company": "Bio-Farm InDoor, s.r.o. Stáž",
+      "date": {
+        "start": "duben 2020",
+        "end": "září 2020"
+      },
+      "address": "Zlín, Česká republika",
+      "description": [
+        "Vytvarení strategie pro marketing.",
+        "Analýza trendů a klíčovích slov.",
+        "Vytváření ppc kampaní na Google.",
+        "Tvorba bannerů a videí.",
+        "Psaní příspěvků na FB a prodejního textu na E-shop."
+      ]
+    },
+    {
+      "name": "Specialista prodeje",
+      "company": "Bio-Farm InDoor s.r.o. Na smlouvu",
+      "date": {
+        "start": "září 2018",
+        "end": "únor 2019"
+      },
+      "address": "Zlín, Česká republika",
+      "description": [
+        "Vyřizování online objednávek, příprava a balení balíků k expedici.",
+        "Prodej zboží v offline prodejně.",
+        "Tvorba reklamních bannerů pro e-shop."
+      ]
+    },
+    {
+      "name": "Programátor (C++ Junior)",
+      "company": "BadFly Interactive, a.s. Na volné noze",
+      "date": {
+        "start": "červen 2018",
+        "end": "červenec 2018"
+      },
+      "address": "Brno, Jihomoravský, Česko",
+      "description": [
+        "Navrhování UI v Unreal Engine 4. Vyvíjel jsem menu, pro tvorbu charakteru."
+      ]
+    },
+    {
+      "name": "Vývojář mobilních her",
+      "company": "Incorrect Games & ADTeam Na volné noze",
+      "date": {
+        "start": "červenec 2017",
+        "end": "červen 2018"
+      },
+      "address": "Kroměříž, Zlínský, Česko",
+      "description": [
+        "Během jednoho roku jsem vytvořil (s pomocí kamarádů) tři herní projekty."
+      ]
+    },
+    {
+      "name": "Programátor (Blueprint)",
+      "company": "BadFly Interactive, a.s. Na smlouvu",
+      "date": {
+        "start": "květen 2017",
+        "end": "červen 2017"
+      },
+      "address": "Brno, Jihomoravský, Česko",
+      "description": [
+        "Zasahoval jsem do Unreal Engine, kde bylo zapotřebí vyvíjet základy funkcionality střelných zbraní a AI postav."
+      ]
+    },
+    {
+      "name": "Programátor (C#)",
+      "company": "Median Na plný úvazek",
+      "date": {
+        "start": "listopad 2015",
+        "end": "říjen 2016"
+      },
+      "address": "Hlavní město Praha, Česká republika",
+      "description": [
+        "Na starosti jsem měl aplikaci, která byla jako back-office. Slouží jako nástroj pro organizaci práce a správu projektů ve výzkumné agentuře."
+      ]
+    },
+    {
+      "name": "Zámečník",
+      "company": "KOVOX, spol. s.r.o. Na plný úvazek",
+      "date": {
+        "start": "říjen 2014",
+        "end": "září 2015"
+      },
+      "address": "Otrokovice",
+      "description": [
+        "Byl jsem zaškolen v oboru zámečníka, kde jsem využíval pracovní nasazení v obrábění kovu (vrtání, soustružení, řezání), oprava strojních dílců apod."
+      ]
+    }
+  ]
 }

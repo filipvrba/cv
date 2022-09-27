@@ -23,6 +23,7 @@ class App < Indigo::Application
     @bio = @profile.parse :bio
     @school = @profile.parse :school
     @address = @profile.parse :address
+    @experiences = @profile.parse :experiences
 
     ren(:root) do
       erb @via.render "root/cv"

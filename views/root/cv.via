@@ -10,3 +10,14 @@
     <p>= @address</p>
   </div>
 </div>
+<div>
+  @experiences.each do |e|
+    <div class="border-top border-down">
+      <h2>= e["name"]</h2>
+      <p>= e["company"]</p>
+      <p>= "#{ e["date"]["start"] } - #{ e["date"]["end"] }"</p>
+      <p>= e["address"]</p>
+      <p>= e["description"].join("\n")</p>
+    </div>
+  end
+</div>
