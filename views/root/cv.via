@@ -1,0 +1,12 @@
+<div>
+  <div>
+    <img src="<%= @avatar %>" alt="">
+  </div>
+  <div>
+    <h1>= @name</h1>
+    <p>= @bio</p>
+
+    <p>= @school</p>
+    <p>= @address</p>
+  </div>
+</div>

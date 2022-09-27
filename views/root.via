@@ -1,5 +1,40 @@
-5.times do |i|
-  <p>
-    = "#{i}x #{@message}"
-  </p>
-end
+<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom container">
+  <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+  </a>
+
+  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+    @menu.each do |c|
+      category = c == @menu[0] ? "" : c
+      <li><a href='<%= "/#{category.downcase}" %>' class="nav-link px-2 link-secondary">= c</a></li>
+    end
+  </ul>
+
+  <div class="col-md-3 text-end">
+    <button type="button" class="btn btn-outline-primary me-2">Login</button>
+    <button type="button" class="btn btn-primary">Sign-up</button>
+  </div>
+</header>
+
+<main class="container py-5">
+  = yield
+</main>
+
+<footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+  <div class="col-md-4 d-flex align-items-center">
+    <span class="mb-3 mb-md-0 text-muted">= "© Copyright #{@year}, #{@fullname}"</span>
+  </div>
+
+  <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+    <li class="ms-3">
+      <a class="text-muted" href="#">
+        <p class="fa fa-github"></p>
+      </a>
+    </li>
+     <li class="ms-3">
+      <a class="text-muted" href="#">
+        <p class="fa fa-linkedin"></p>
+      </a>
+    </li>
+  </ul>         
+</footer>

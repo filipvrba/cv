@@ -14,7 +14,10 @@ module Indigo
       super
 
       @via = Via::Application.new
-      @db  = JsonParser.new File.absolute_path("#{ROOT_PATH}/share/db.json", __FILE__)
+
+      # JSON
+      @db       = JsonParser.new File.absolute_path("#{ROOT_PATH}/share/db.json", __FILE__)
+      @profile  = JsonParser.new File.absolute_path("#{ROOT_PATH}/share/profile.json", __FILE__)
     end
 
     def ren symbol, &callback

@@ -6,10 +6,26 @@ class App < Indigo::Application
     super
 
     @name_app = "Indigo"
-    @message = @db.parse :message
+    @fullname = @db.parse :fullname
+    @menu = @db.parse :menu
+    @year = Time.new.year
   end
 
   get "/" do
-    ren(:root)
+    ren(:root) do
+      erb @via.render "root/home"
+    end
+  end
+
+  get "/cv" do
+    @avatar = @profile.parse :avatar
+    @name = @profile.parse :name
+    @bio = @profile.parse :bio
+    @school = @profile.parse :school
+    @address = @profile.parse :address
+
+    ren(:root) do
+      erb @via.render "root/cv"
+    end
   end
 end

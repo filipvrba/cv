@@ -1,3 +1,7 @@
 {
-  "message": "Hello Indigo"
+  "fullname": "Filip Vrba",
+  "menu": [
+    "Home",
+    "CV"
+  ]
 }
