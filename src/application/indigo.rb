@@ -1,4 +1,6 @@
 require_relative "via"
+require_relative "../db"
+require "pandoc-ruby"
 
 module Indigo
   class Application < Sinatra::Application
@@ -15,7 +17,6 @@ module Indigo
 
       @via = Via::Application.new
 
-      # JSON
       @db       = JsonParser.new File.absolute_path("#{ROOT_PATH}/share/db.json", __FILE__)
       @profile  = JsonParser.new File.absolute_path("#{ROOT_PATH}/share/profile.json", __FILE__)
     end

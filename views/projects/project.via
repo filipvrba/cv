@@ -1,0 +1,16 @@
+<form class="form-floating" id="usrform-edit" action='<%= "/projects/#{@id_name}/edit" %>' method="get">
+</form>
+<form class="form-floating" id="usrform-del" action='<%= "/projects/#{@id_name}/delete" %>' method="post">
+</form>
+
+<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+  <button form="usrform-edit" type="submit" class="btn btn-primary">Edit</button>
+  <button form="usrform-del" type="submit" class="btn btn-danger">Delete</button>
+</div>
+
+<article class="blog-post">
+  <h1 class="blog-post-title mb-1">= @project["name"]</h1>
+  <p class="blog-post-meta">= "#{time(@id_name)} | #{@project['author']}"</p>
+
+  = markdown @project["description"]
+</article>
