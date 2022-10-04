@@ -6,7 +6,6 @@ module Controllers
       super
 
       @projects = @db.projects
-      # @project  = @projects[""]
     end
 
     def time id
@@ -15,6 +14,16 @@ module Controllers
 
     def id name
       name.gsub(/[-,.]/, " ").split.join("_").downcase
+    end
+
+    def autotarized &callback
+      if @db.root.parse(:autotarized) == "true"
+        callback.call
+      else
+        ren(:root) do
+          erb @via.render "projects/autotarized"
+        end
+      end
     end
 
     get "/projects" do
@@ -27,7 +36,7 @@ module Controllers
       project = {
         "name" => params["name"],
         "description" => params["description"],
-        "author" => @fullname,
+        "author" => @db.profile.parse("name"),
         "time" => Time.now.to_i
       }
       @projects.parse( id(params["name"]), project)
@@ -36,13 +45,9 @@ module Controllers
     end
 
     get "/projects/create" do
-      if @db.root.parse(:autotarized) == "true"
+      autotarized do
         ren(:root) do
           erb @via.render "projects/create"
-        end
-      else
-        ren(:root) do
-          erb @via.render "projects/autotarized"
         end
       end
     end
@@ -78,18 +83,21 @@ module Controllers
     end 
 
     get "/projects/{name}/edit" do |name|
-      @id_name = name
-      @project = @projects.parse(@id_name)
+      autotarized do
+        @id_name = name
+        @project = @projects.parse(@id_name)
 
-      ren(:root) do
-        erb @via.render "projects/edit"
+        ren(:root) do
+          erb @via.render "projects/edit"
+        end
       end
     end
 
     post "/projects/{name}/delete" do |name|
-      @projects.delete name
-
-      redirect "/projects"
+      autotarized do
+        @projects.delete name
+        redirect "/projects"
+      end
     end
   end
 end

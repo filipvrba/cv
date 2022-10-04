@@ -1,12 +1,14 @@
-<form class="form-floating" id="usrform-edit" action='<%= "/projects/#{@id_name}/edit" %>' method="get">
-</form>
-<form class="form-floating" id="usrform-del" action='<%= "/projects/#{@id_name}/delete" %>' method="post">
-</form>
+if @db.root.parse(:autotarized) == "true"
+  <form class="form-floating" id="usrform-edit" action='<%= "/projects/#{@id_name}/edit" %>' method="get">
+  </form>
+  <form class="form-floating" id="usrform-del" action='<%= "/projects/#{@id_name}/delete" %>' method="post">
+  </form>
 
-<div class="btn-group" role="group" aria-label="Basic mixed styles example">
-  <button form="usrform-edit" type="submit" class="btn btn-primary">Edit</button>
-  <button form="usrform-del" type="submit" class="btn btn-danger">Delete</button>
-</div>
+  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+    <button form="usrform-edit" type="submit" class="btn btn-primary">Edit</button>
+    <button form="usrform-del" type="submit" class="btn btn-danger">Delete</button>
+  </div>
+end
 
 <article class="blog-post">
   <h1 class="blog-post-title mb-1">= @project["name"]</h1>
