@@ -1,0 +1,14 @@
+{
+  "fullname": "Filip Vrba",
+  "menu": [
+    "Home",
+    "CV"
+  ],
+  "sign_in": "Přihlásit se",
+  "profile_menu": [
+    "Nastavení",
+    "Odhlásit se"
+  ],
+  "autotarized": "true",
+  "app_name": "CV"
+}

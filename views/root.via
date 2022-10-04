@@ -4,16 +4,43 @@
   </a>
 
   <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-    @menu.each do |c|
-      category = c == @menu[0] ? "" : c
+    menu = @db.root.parse(:menu)
+    menu.each do |c|
+      category = c == menu[0] ? "" : c
       <li><a href='<%= "/#{category.downcase}" %>' class="nav-link px-2 link-secondary">= c</a></li>
     end
   </ul>
 
-  <div class="col-md-3 text-end">
-    <button type="button" class="btn btn-outline-primary me-2">Login</button>
-    <button type="button" class="btn btn-primary">Sign-up</button>
-  </div>
+  unless @db.root.parse("autotarized").downcase == "true"
+    sign_in = @db.root.parse(:sign_in)
+
+    <form class="form-floating" id="usrform-sig-in" action='<%= "/#{ Helper.transliterate(sign_in) }" %>' method="get">
+    </form>
+
+    <div class="col-md-3 text-end">
+      <button form="usrform-sig-in" type="submit" class="btn btn-outline-primary me-2">= @db.root.parse :sign_in</button>
+    </div>
+  else
+    <!-- Profile -->
+    <div class="flex-shrink-0 dropdown col-md-3 text-end">
+      <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="<%= @db.profile.parse(:avatar) %>" alt="mdo" class="rounded-circle" width="32" height="32">
+      </a>
+      <ul class="dropdown-menu text-small shadow" style="">
+        profile_menu = @db.root.parse(:profile_menu)
+        profile_menu.each_with_index do |item, i|
+        
+          if profile_menu.length - 1 == i
+            <li><hr class="dropdown-divider"></li>
+          end
+
+          <li>
+            <a class="dropdown-item" href="/<%= Helper.transliterate(item) %>">= item</a>
+          </li>
+        end
+      </ul>
+    </div>
+  end
 </header>
 
 <main class="container py-5">
@@ -22,7 +49,7 @@
 
 <footer class="container d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
   <div class="col-md-4 d-flex align-items-center">
-    <span class="mb-3 mb-md-0 text-muted">= "© Copyright #{@year}, #{@fullname}"</span>
+    <span class="mb-3 mb-md-0 text-muted">= "© Copyright #{ Time.now.year }, #{@db.root.parse(:fullname)}"</span>
   </div>
 
   <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
