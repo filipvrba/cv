@@ -2,11 +2,11 @@
   "fullname": "Filip Vrba",
   "menu": [
     "Home",
-    "Projects",
-    "CV"
+    "Projects"
   ],
   "sign_in": "Přihlásit se",
   "profile_menu": [
+    "Nový projekt",
     "Nastavení",
     "Odhlásit se"
   ],

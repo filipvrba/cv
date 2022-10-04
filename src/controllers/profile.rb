@@ -34,5 +34,14 @@ module Controllers
 
       ren("profile/sign_in")
     end
+
+    get "/nastaveni" do
+
+      autotarized :profile do
+        ren(:root) do
+          erb @via.render "profile/edit"
+        end
+      end
+    end
   end
 end

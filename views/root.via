@@ -3,7 +3,7 @@
     <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
   </a>
 
-  <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+  <ul class="nav col-12 col-md-6 mb-2 justify-content-center mb-md-0">
     menu = @db.root.parse(:menu)
     menu.each do |c|
       category = c == menu[0] ? "" : c
@@ -22,23 +22,25 @@
     </div>
   else
     <!-- Profile -->
-    <div class="flex-shrink-0 dropdown col-md-3 text-end">
-      <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="<%= @db.profile.parse(:avatar) %>" alt="mdo" class="rounded-circle" width="32" height="32">
-      </a>
-      <ul class="dropdown-menu text-small shadow" style="">
-        profile_menu = @db.root.parse(:profile_menu)
-        profile_menu.each_with_index do |item, i|
-        
-          if profile_menu.length - 1 == i
-            <li><hr class="dropdown-divider"></li>
-          end
+    <div class="col-md-3">
+      <div class="flex-shrink-0 dropdown text-end">
+        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="<%= @db.profile.parse(:avatar) %>" alt="mdo" class="rounded-circle" width="32" height="32">
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end text-small shadow" style="">
+          profile_menu = @db.root.parse(:profile_menu)
+          profile_menu.each_with_index do |item, i|
+          
+            if profile_menu.length - 1 == i
+              <li><hr class="dropdown-divider"></li>
+            end
 
-          <li>
-            <a class="dropdown-item" href="/<%= Helper.transliterate(item) %>">= item</a>
-          </li>
-        end
-      </ul>
+            <li>
+              <a class="dropdown-item" href="/<%= Helper.transliterate(item) %>">= item</a>
+            </li>
+          end
+        </ul>
+      </div>
     </div>
   end
 </header>

@@ -25,6 +25,16 @@ module Indigo
       end
     end
 
+    def autotarized symbol, &callback
+      if @db.root.parse(:autotarized) == "true"
+        callback.call
+      else
+        ren(:root) do
+          erb @via.render "#{ symbol.to_s }/autotarized"
+        end
+      end
+    end
+
     not_found do
       ren(:root) do
         erb @via.render "not_found"

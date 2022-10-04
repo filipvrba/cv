@@ -16,16 +16,6 @@ module Controllers
       name.gsub(/[-,.]/, " ").split.join("_").downcase
     end
 
-    def autotarized &callback
-      if @db.root.parse(:autotarized) == "true"
-        callback.call
-      else
-        ren(:root) do
-          erb @via.render "projects/autotarized"
-        end
-      end
-    end
-
     get "/projects" do
       ren(:root) do
         erb via.render "projects/index"
@@ -45,7 +35,7 @@ module Controllers
     end
 
     get "/projects/create" do
-      autotarized do
+      autotarized :projects do
         ren(:root) do
           erb @via.render "projects/create"
         end
@@ -83,7 +73,7 @@ module Controllers
     end 
 
     get "/projects/{name}/edit" do |name|
-      autotarized do
+      autotarized :projects do
         @id_name = name
         @project = @projects.parse(@id_name)
 
@@ -94,10 +84,14 @@ module Controllers
     end
 
     post "/projects/{name}/delete" do |name|
-      autotarized do
+      autotarized :projects do
         @projects.delete name
         redirect "/projects"
       end
+    end
+
+    get "/novy-projekt" do
+      redirect "/projects/create"
     end
   end
 end
