@@ -11,7 +11,7 @@
     end
   </ul>
 
-  unless @db.root.parse("autotarized").downcase == "true"
+  unless cookies[:autotarized] == "true"
     sign_in = @db.root.parse(:sign_in)
 
     <form class="form-floating" id="usrform-sig-in" action='<%= "/#{ Helper.transliterate(sign_in) }" %>' method="get">

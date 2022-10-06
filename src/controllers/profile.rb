@@ -17,7 +17,7 @@ module Controllers
     end
 
     get "/odhlasit-se" do
-      @db.root.parse :autotarized, "false"
+      cookies[:autotarized] = "false"
       
       redirect "/"
     end
@@ -27,7 +27,7 @@ module Controllers
         check = Password::Hashing.check(params["password"], @profile.parse(:password))
 
         if check
-          @db.root.parse :autotarized, "true"
+          cookies[:autotarized] = "true"
           @invalid = false
           
           redirect "/"

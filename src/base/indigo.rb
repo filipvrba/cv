@@ -5,6 +5,7 @@ require_relative "../helper"
 
 require 'sinatra/base'
 require "sinatra/reloader"
+require "sinatra/cookies"
 
 require "pandoc-ruby"
 
@@ -15,6 +16,8 @@ module Indigo
     configure :development do
       register Sinatra::Reloader
     end
+
+    helpers Sinatra::Cookies
 
     def initialize
       super
@@ -33,7 +36,7 @@ module Indigo
     end
 
     def autotarized symbol, &callback
-      if @db.root.parse(:autotarized) == "true"
+      if cookies[:autotarized] == "true"
         callback.call
       else
         ren(:root) do

@@ -5,7 +5,7 @@
       <p class="blog-post-meta">= "#{time(@id_name)} | #{@db.profile.parse("name")}"</p>
     </div>
     <div class="col text-end">
-      if @db.root.parse(:autotarized) == "true"
+      if cookies[:autotarized] == "true"
         <form class="form-floating" id="usrform-edit" action='<%= "/projects/#{@id_name}/edit" %>' method="get">
         </form>
         <form class="form-floating" id="usrform-del" action='<%= "/projects/#{@id_name}/delete" %>' method="post">

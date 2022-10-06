@@ -37,6 +37,7 @@ DEPENDENCIES
   pandoc-ruby (~> 2.1)
   puma (~> 5.6)
   sinatra (~> 3.0)
+  sinatra-contrib (~> 3.0)
   sinatra-reloader (~> 1.0)
   sinatra-router (~> 0.3.0)
   sinatra-security (~> 0.2.1)
