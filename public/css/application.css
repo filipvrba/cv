@@ -19,3 +19,7 @@
   margin-right: auto;
   margin-left: auto;
 }
+
+.avatar {
+  border-radius: 12px;
+}

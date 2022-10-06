@@ -1,14 +1,19 @@
-<div class="row" data-masonry="{&quot;percentPosition&quot;: true }" style="position: relative; height: 690px;">
-  <div class="col-sm-6 col-lg-4 mb-4" style="position: absolute; left: 0%; top: 0px;">
-    <div class="card">
-      <svg class="bd-placeholder-img card-img-top" width="100%" height="200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image cap" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image cap</text></svg>
-
-      <div class="card-body">
-        <h5 class="card-title">Card title that wraps to a new line</h5>
-        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+<div>
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <div class="col">
+      <!-- <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" loading="lazy" width="700" height="500"> -->
+      <iframe src="https://filipvrba.github.io/circles/?panel=false&radius=10-30&speed=50-200" class="d-block mx-lg-auto img-fluid" frameborder="0" style="width: 700px; height: 500px"></iframe>
+    </div>
+    <div class="col-lg-6">
+      
+        <div class="col d-flex align-items-start">
+          <img src='<%= @db.profile.parse :avatar %>' alt="avatar" class="avatar icon-square d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3" width="256" height="256">
+        <div>
+          <h1 class="display-5 fw-bold lh-1 mb-3">= @db.profile.parse :name</h1>
+          <p class="lead">= @db.profile.parse :bio</p>
+          <p>= @db.profile.parse :address</p>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha384-GNFwBvfVxBkLMJpYMOABq3c+d3KnQxudP/mGPkzpZSTYykLBNsZEnG2D9G/X/+7D" crossorigin="anonymous" async></script>

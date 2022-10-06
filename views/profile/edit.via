@@ -39,11 +39,13 @@
 
         <div class="col-12">
           <label for="address" class="form-label">Bio</label>
-          <input type="text" class="form-control" name="bio" id="bio" value='<%= data :bio%>' required="">
+          <textarea name="bio" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 150px;">= data :bio</textarea>
           <div class="invalid-feedback">
           </div>
         </div>
       </div>
+
+      
 
       <hr class="my-4">
 
