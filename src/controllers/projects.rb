@@ -26,7 +26,6 @@ module Controllers
       project = {
         "name" => params["name"],
         "description" => params["description"],
-        "author" => @db.profile.parse("name"),
         "time" => Time.now.to_i
       }
       @projects.parse( id(params["name"]), project)

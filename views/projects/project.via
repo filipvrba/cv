@@ -1,18 +1,26 @@
-if @db.root.parse(:autotarized) == "true"
-  <form class="form-floating" id="usrform-edit" action='<%= "/projects/#{@id_name}/edit" %>' method="get">
-  </form>
-  <form class="form-floating" id="usrform-del" action='<%= "/projects/#{@id_name}/delete" %>' method="post">
-  </form>
-
-  <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-    <button form="usrform-edit" type="submit" class="btn btn-primary">Edit</button>
-    <button form="usrform-del" type="submit" class="btn btn-danger">Delete</button>
+<article class="blog-post col-lg-8 col-center">
+  <div class="row row-cols-1 row-cols-sm-2 g-1">
+    <div class="col">
+      <h1 class="blog-post-title mb-1">= @project["name"]</h1>
+      <p class="blog-post-meta">= "#{time(@id_name)} | #{@db.profile.parse("name")}"</p>
+    </div>
+    <div class="col text-end">
+      if @db.root.parse(:autotarized) == "true"
+        <form class="form-floating" id="usrform-edit" action='<%= "/projects/#{@id_name}/edit" %>' method="get">
+        </form>
+        <form class="form-floating" id="usrform-del" action='<%= "/projects/#{@id_name}/delete" %>' method="post">
+        </form>
+      
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+          <button form="usrform-edit" type="submit" class="btn btn-primary">Edit</button>
+          <button onclick="showWarning('Opravdu chcete vymazat projekt?')" type="submit" class="btn btn-danger">Delete</button>
+        </div>
+      end
+    </div>
   </div>
-end
-
-<article class="blog-post">
-  <h1 class="blog-post-title mb-1">= @project["name"]</h1>
-  <p class="blog-post-meta">= "#{time(@id_name)} | #{@project['author']}"</p>
 
   = markdown @project["description"]
 </article>
+
+
+<script type="text/javascript" src="/js/project.js"></script>

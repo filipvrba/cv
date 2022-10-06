@@ -2,12 +2,19 @@ require_relative "../application/via"
 require_relative "../db"
 require_relative "../constants"
 require_relative "../helper"
+
 require 'sinatra/base'
+require "sinatra/reloader"
+
 require "pandoc-ruby"
 
 module Indigo
   class Base < Sinatra::Base
     attr_reader :via, :db
+
+    configure :development do
+      register Sinatra::Reloader
+    end
 
     def initialize
       super

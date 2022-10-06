@@ -8,8 +8,9 @@ require_relative "src/db"
 require "sinatra/router"
 
 use Sinatra::Router do
+  mount Controllers::Profile
   mount Controllers::Root
   mount Controllers::Projects
-  mount Controllers::Profile
 end
+
 run Indigo::Application

@@ -4,3 +4,18 @@
   max-width: 330px;
   padding: 15px;
 }
+
+.fa {
+  font-size: 22px;
+}
+
+.con-ver-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.col-center {
+  float: none;
+  margin-right: auto;
+  margin-left: auto;
+}

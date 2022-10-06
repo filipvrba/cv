@@ -13,3 +13,5 @@ gem "pandoc-ruby", "~> 2.1"
 gem "sinatra-security", "~> 0.2.1"
 
 gem "sinatra-router", "~> 0.3.0"
+
+gem "sinatra-reloader", "~> 1.0"

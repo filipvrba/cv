@@ -12,6 +12,10 @@ module Controllers
       @invalid = false
     end
 
+    def data(symbol, value = nil)
+      @db.profile.parse symbol, value
+    end
+
     get "/odhlasit-se" do
       @db.root.parse :autotarized, "false"
       
@@ -38,6 +42,21 @@ module Controllers
     get "/nastaveni" do
 
       autotarized :profile do
+        ren(:root) do
+          erb @via.render "profile/edit"
+        end
+      end
+    end
+
+    post "/nastaveni" do
+
+      autotarized :profile do
+        @is_save = true
+
+        params.each do |k, v|
+          data(k, v)
+        end
+
         ren(:root) do
           erb @via.render "profile/edit"
         end
