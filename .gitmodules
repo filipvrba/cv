@@ -4,4 +4,3 @@
 [submodule "lib/via"]
 	path = lib/via
 	url = git@github.com:filipvrba/via.git
-	
