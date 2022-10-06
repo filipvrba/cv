@@ -6,4 +6,4 @@ if [ $# == 0 ]; then
 	read -p "Message: " message
 fi
 git commit -am "${message}"
-git push heroku master
+git push heroku main
