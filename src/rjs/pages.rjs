@@ -1,0 +1,17 @@
+PAGES = {
+  err_404: """
+    <h1>404</h1>
+    <p>Not found</p>
+  """,
+  home: """
+    <div class='container py-3'>
+      <elm-header></elm-header>
+      <main>
+        <elm-home></elm-home>
+      </main>
+      <elm-footer></elm-footer>
+    </div>
+  """,
+}
+
+window.PAGES = PAGES

@@ -1,0 +1,31 @@
+def gsub(*args)
+	result = self
+
+	unless result == "" or result == nil
+		while true
+			if result.indexOf(args[0]) == -1
+				break
+			end
+			result = result.replace(args[0], args[1])
+		end
+	end
+
+	return result
+end
+String.prototype.gsub = gsub
+
+def url_form()
+  return self.gsub(' ', '-').toLowerCase().replace('---', '-').gsub('-|-', '-')
+end
+String.prototype.url_form = url_form
+
+def to_date()
+  date = Date.new(self)
+  s_iso_date = date.toISOString().replace(/T.*$/, '').split('-')
+  day = s_iso_date[2]
+  month = s_iso_date[1]
+  year = s_iso_date[0]
+  
+  return "#{day}. #{month}. #{year}"
+end
+String.prototype.to_date = to_date

@@ -1,0 +1,11 @@
+import "ElmGreet", "./elements/elm_greet"
+import "ElmHome", "./elements/elm_home"
+import "ElmSpinner", "./elements/elm_spinner"
+import "ElmArticles", "./elements/elm_articles"
+import "ElmProjects", "./elements/elm_projects"
+
+window.customElements.define('elm-greet', ElmGreet)
+window.customElements.define('elm-home', ElmHome)
+window.customElements.define('elm-spinner', ElmSpinner)
+window.customElements.define('elm-articles', ElmArticles)
+window.customElements.define('elm-projects', ElmProjects)

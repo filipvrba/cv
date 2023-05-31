@@ -1,0 +1,22 @@
+export default class Route
+  def initialize routes
+    @routes = routes
+    window.onpopstate = location
+    window.route = route
+
+    location()
+  end
+
+  def route(event)
+    event = event || window.event
+    event.preventDefault()
+    window.history.pushState({}, '', event.target.href)
+    location()
+  end
+
+  def location()
+    path = window.location.pathname
+    html = @routes[path] || @routes[404]
+    document.getElementById('app').innerHTML = html
+  end
+end

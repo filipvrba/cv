@@ -1,0 +1,28 @@
+body {
+  font-family: Roboto, sans-serif;
+  font-size: 18px;
+}
+
+.md-html iframe,
+.md-html img {
+  display: block;
+
+  width: auto;
+  height: auto;
+  max-width: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1em;
+}
+
+.md-html blockquote {
+  margin: 0 7px 0 5px;
+  padding: 0 16px 0 10px;
+  border-left-width: 5px;
+  border-left-style: solid;
+}
+
+a {
+  text-decoration: none;
+}

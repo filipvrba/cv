@@ -1,0 +1,16 @@
+export default class Net
+  def self.http_get(url, &callback)
+    fetch(url)
+    .then(lambda do |response|
+      response.json()
+    end)
+    .then(lambda do |data|
+      if data.status_code
+        console.error("GET: #{data.status_code} #{data.status}")
+        callback([]) if callback
+      else
+        callback(data) if callback
+      end
+    end)
+  end
+end
