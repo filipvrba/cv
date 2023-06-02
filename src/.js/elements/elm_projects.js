@@ -6,28 +6,12 @@ export default class ElmProjects extends HTMLElement {
   constructor() {
     super();
 
-    this._h_elm_greet_loaded = () => (
-      this.get_data((data) => {
-        Events.send(EVENTS.elm_projects_length, data.length);
-        this.init_elm(data)
-      })
-    );
+    this.get_data((data) => {
+      Events.send(EVENTS.elm_projects_length, data.length);
+      this.init_elm(data)
+    });
 
     this.init_spinner()
-  };
-
-  connectedCallback() {
-    document.addEventListener(
-      EVENTS.elm_greet_loaded,
-      this._h_elm_greet_loaded
-    )
-  };
-
-  disconnectedCallback() {
-    document.removeEventListener(
-      EVENTS.elm_greet_loaded,
-      this._h_elm_greet_loaded
-    )
   };
 
   get_data(block) {

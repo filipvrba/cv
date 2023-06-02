@@ -6,12 +6,10 @@ export default class ElmArticles extends HTMLElement {
   constructor() {
     super();
 
-    this._h_elm_greet_loaded = () => (
-      this.get_data((data) => {
-        Events.send(EVENTS.elm_articles_length, data.length);
-        this.init_elm(data)
-      })
-    );
+    this.get_data((data) => {
+      Events.send(EVENTS.elm_articles_length, data.length);
+      this.init_elm(data)
+    });
 
     this.init_spinner()
   };
@@ -46,20 +44,6 @@ export default class ElmArticles extends HTMLElement {
 
       if (block) block(gists_filter())
     })
-  };
-
-  connectedCallback() {
-    document.addEventListener(
-      EVENTS.elm_greet_loaded,
-      this._h_elm_greet_loaded
-    )
-  };
-
-  disconnectedCallback() {
-    document.removeEventListener(
-      EVENTS.elm_greet_loaded,
-      this._h_elm_greet_loaded
-    )
   };
 
   init_elm(data) {

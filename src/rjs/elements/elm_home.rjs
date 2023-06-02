@@ -1,16 +1,34 @@
+import ['GITHUB_URL'], '../constants'
+import 'Net', '../core/net'
+
 export default class ElmHome < HTMLElement
   def initialize
     super
 
-    @title = "CV"
-    init_elm()
+    get_data() do |data|
+      init_elm(data)
+    end
   end
 
-  def init_elm()
+  def get_data(&block)
+    Net.http_get(GITHUB_URL[:profile]) do |profile|
+      data = {
+        avatar: profile.avatar_url,
+        full_name: profile.name,
+        profile_url: profile.html_url
+      }
+      block(data) if block
+    end
+  end
+
+  def init_elm(data)
     template = """
       <div class='container py-5'>
-        <div class='pricing-header p-3 pb-md-4 mx-auto text-center'>
-          <h1 class='display-4 fw-normal'>#{@title}</h1>
+        <div class='text-center'>
+          <a href='#{data[:profile_url]}' target='_blank' style='color: inherit;'>
+            <img src='#{data[:avatar]}' class='bd-placeholder-img rounded-circle mb-3 mt-3' width='256' height='256' />
+            <h1 class='display-1 m-0'><strong>#{data[:full_name]}</strong></h1>
+          </a>
         </div>
 
         <elm-greet></elm-greet>

@@ -1,15 +1,32 @@
+import { GITHUB_URL } from "../constants";
+import Net from "../core/net";
+
 export default class ElmHome extends HTMLElement {
   constructor() {
     super();
-    this._title = "CV";
-    this.init_elm()
+    this.get_data(data => this.init_elm(data))
   };
 
-  init_elm() {
+  get_data(block) {
+    Net.http_get(GITHUB_URL.profile, (profile) => {
+      let data = {
+        avatar: profile.avatar_url,
+        full_name: profile.name,
+        profile_url: profile.html_url
+      };
+
+      if (block) block(data)
+    })
+  };
+
+  init_elm(data) {
     let template = `${`
       <div class='container py-5'>
-        <div class='pricing-header p-3 pb-md-4 mx-auto text-center'>
-          <h1 class='display-4 fw-normal'>${this._title}</h1>
+        <div class='text-center'>
+          <a href='${data.profile_url}' target='_blank' style='color: inherit;'>
+            <img src='${data.avatar}' class='bd-placeholder-img rounded-circle mb-3 mt-3' width='256' height='256' />
+            <h1 class='display-1 m-0'><strong>${data.full_name}</strong></h1>
+          </a>
         </div>
 
         <elm-greet></elm-greet>

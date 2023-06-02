@@ -5,13 +5,11 @@ import 'Net', '../core/net'
 export default class ElmArticles < HTMLElement
   def initialize
     super
-    @h_elm_greet_loaded = lambda do
-      get_data() do |data|
-        Events.send(EVENTS[:elm_articles_length], data.length)
-        init_elm(data)
-      end
-    end
 
+    get_data() do |data|
+      Events.send(EVENTS[:elm_articles_length], data.length)
+      init_elm(data)
+    end
     init_spinner()
   end
 
@@ -39,14 +37,6 @@ export default class ElmArticles < HTMLElement
       
       block(gists_filter()) if block
     end
-  end
-
-  def connectedCallback()
-    document.addEventListener(EVENTS[:elm_greet_loaded], @h_elm_greet_loaded)
-  end
-
-  def disconnectedCallback()
-    document.removeEventListener(EVENTS[:elm_greet_loaded], @h_elm_greet_loaded)
   end
 
   def init_elm(data)
