@@ -8,3 +8,4 @@ export GITHUB_URL = {
   repos: 'https://api.github.com/users/filipvrba/repos?per_page=100',
   gists: 'https://api.github.com/users/filipvrba/gists',
 }
+export CIRCLES_URL = 'https://filipvrba.github.io/circles/'

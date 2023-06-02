@@ -1,0 +1,42 @@
+import ['CIRCLES_URL'], '../constants'
+
+export default class ElmBackground < HTMLElement
+  def initialize
+    super
+
+    @h_resize = lambda do |_|
+      size = {
+        width: window.innerWidth,
+        height: 416
+      }
+      ibackground = document.getElementById('ibackground')
+      ibackground.width = size.width
+      ibackground.height = size.height
+    end
+    @arguments = [
+      'panel=false',
+      'speed=50-100',
+      'radius=1-5',
+      'circles=50',
+    ]
+
+    init_elm()
+  end
+
+  def connectedCallback()
+    window.addEventListener('resize', @h_resize)
+    @h_resize.call()
+  end
+
+  def disconnectedCallback()
+    window.removeEventListener('resize', @h_resize)
+  end
+
+  def init_elm(data)
+    template = """
+      <iframe id='ibackground' src='#{CIRCLES_URL}?#{@arguments.join('&')}' title='Circles'></iframe> 
+    """
+
+    self.innerHTML = template
+  end
+end

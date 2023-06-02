@@ -4,6 +4,7 @@ PAGES = {
     <p>Not found</p>
   """,
   home: """
+    <elm-background></elm-background>
     <div class='container py-3'>
       <elm-header></elm-header>
       <main>
